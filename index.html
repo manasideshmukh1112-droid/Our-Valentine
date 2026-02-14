@@ -10,5 +10,47 @@
         #heart-btn { cursor: pointer; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
         #content { display: none; animation: fadeIn 2.5s ease-in; }
-        .photo-frame { border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 4px; margin-bottom:
-            
+        .photo-frame { border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 4px; margin-bottom: 25px; width: 100%; max-height: 450px; object-fit: cover; }
+        .music-button { display: inline-block; background-color: #1DB954; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3); }
+        .letter-text { background: rgba(255, 255, 255, 0.07); padding: 25px; border-radius: 15px; line-height: 1.8; text-align: left; font-size: 1.05rem; border-left: 4px solid #ff4d4d; }
+        .lyrics { font-style: italic; color: #ffb3b3; margin-bottom: 15px; font-size: 0.9rem; line-height: 1.4; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .floating-heart { position: fixed; color: #ff4d4d; pointer-events: none; z-index: -1; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="opener">
+            <div id="heart-btn" onclick="reveal()">
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="#ff4d4d"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <p style="color: #ff4d4d; font-weight: bold; margin-top: 15px;">Click to open</p>
+        </div>
+        <div id="content">
+            <a href="https://open.spotify.com/track/3v87L36L8dGptYk6N31w7v" target="_blank" class="music-button">🎧 Play "Raabta" & Return</a>
+            <img src="https://i.postimg.cc/y6bcWwHm/IMG20250218004556.jpg" class="photo-frame">
+            <div class="lyrics">"Kehte hain khuda ne iss jahan mein sabhi ke liye...<br>Kisi na kisi ko hai banaya har kisi ke liye."</div>
+            <div class="letter-text">
+                <h2 style="color: #ff4d4d; margin-top: 0;">To My Favorite Person,</h2>
+                <p>I wanted to do something a little different this time because "thank you" or "I love you" doesn't always feel like enough. I built this little corner of the internet just for us.</p>
+                <p>I know our relationship isn’t perfect. We’ve had our ups and downs, our misunderstandings, and moments where things felt hard. But even with all that, what we have is the most beautiful and meaningful part of my life. Loving you has been the greatest blessing I could ever ask for.</p>
+                <p>You are my safe place, my comfort, my happiness, and my strength. When I think about my future, I don’t see it without you in it. I don’t want a life that doesn’t have your laughter, your voice, your presence beside me. Being with you feels right in a way I can’t fully explain — it feels like home.</p>
+                <p>I promise to stand by you through every challenge. No matter what obstacles come our way, we will face them together. I will hold your hand when things get tough, remind you of your strength when you forget it, and never stop choosing you.</p>
+                <p>Let’s grow together. Let’s learn from our mistakes. Let’s forgive quickly, communicate honestly, and never let pride be bigger than our love. I don’t want perfection — I want us.</p>
+                <p>Be with me, and I will be with you — not just in the easy moments, but in every season of life. Forever isn’t just a word to me when it comes to you. It’s a promise.</p>
+                <p style="text-align: right; margin-top: 30px;"><strong>With all my heart,<br>Yours always ❤️</strong></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function reveal() { document.getElementById('opener').style.display = 'none'; document.getElementById('content').style.display = 'block'; setInterval(createHeart, 400); }
+        function createHeart() {
+            const heart = document.createElement('div'); heart.classList.add('floating-heart'); heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw'; heart.style.top = '100vh'; heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            document.body.appendChild(heart);
+            const animation = heart.animate([{ transform: 'translateY(0)', opacity: 1 }, { transform: 'translateY(-100vh)', opacity: 0 }], { duration: 5000 });
+            animation.onfinish = () => heart.remove();
+        }
+    </script>
+</body>
+</html>
