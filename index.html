@@ -104,5 +104,67 @@
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
             </div>
-            <p style="color: #ff
+            <p style="color: #ff4d4d; font-weight: bold; margin-top: 15px;">Click to open</p>
+        </div>
+
+        <div id="content">
+            <a href="https://open.spotify.com/track/0f3C3p1H6E6T7U0r6A0X6M" target="_blank" class="music-button">
+                🎧 Play "Raabta" on Spotify & Return
+            </a>
+
+            <img src="https://i.postimg.cc/y6bcWwHm/IMG20250218004556.jpg" class="photo-frame" alt="Us">
+            
+            <div class="lyrics">
+                "Kehte hain khuda ne iss jahan mein sabhi ke liye...<br>
+                Kisi na kisi ko hai banaya har kisi ke liye."
+            </div>
+
+            <div class="letter-text">
+                <h2 style="color: #ff4d4d; margin-top: 0;">To My Favorite Person,</h2>
                 
+                <p>I wanted to do something a little different this time because "thank you" or "I love you" doesn't always feel like enough. I built this little corner of the internet just for us.</p>
+                
+                <p>I know our relationship isn’t perfect. We’ve had our ups and downs, our misunderstandings, and moments where things felt hard. But even with all that, what we have is the most beautiful and meaningful part of my life. Loving you has been the greatest blessing I could ever ask for.</p>
+                
+                <p>You are my safe place, my comfort, my happiness, and my strength. When I think about my future, I don’t see it without you in it. I don’t want a life that doesn’t have your laughter, your voice, your presence beside me. Being with you feels right in a way I can’t fully explain — it feels like home.</p>
+
+                <p>I promise to stand by you through every challenge. No matter what obstacles come our way, we will face them together. I will hold your hand when things get tough, remind you of your strength when you forget it, and never stop choosing you. We will build a life filled with love, trust, laughter, and countless beautiful memories.</p>
+
+                <p>Let’s grow together. Let’s learn from our mistakes. Let’s forgive quickly, communicate honestly, and never let pride be bigger than our love. I don’t want perfection — I want us. Real, imperfect, but deeply in love.</p>
+
+                <p>Be with me, and I will be with you — not just in the easy moments, but in every season of life. Forever isn’t just a word to me when it comes to you. It’s a promise.</p>
+                
+                <p style="text-align: right; margin-top: 30px;"><strong>With all my heart,<br>Yours always ❤️</strong></p>
+            </div>
+            
+            <p style="margin-top: 25px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 1px;">♫ RAABTA - ARIJIT SINGH</p>
+        </div>
+    </div>
+
+    <script>
+        function reveal() {
+            document.getElementById('opener').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            setInterval(createHeart, 400);
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            document.body.appendChild(heart);
+            
+            const animation = heart.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], { duration: 5000, easing: 'linear' });
+
+            animation.onfinish = () => heart.remove();
+        }
+    </script>
+</body>
+                    </html>
+                    
